@@ -283,61 +283,41 @@ def stone():
 # ----------------------------------------------------------------------------------------- carpet
 
 def carpet():
-    """Heathered level-loop (Berber-style) low pile: ~2.5 mm row gauge, ~2.9 mm stitch, 0.5 m tile."""
+    """Chunky ribbed woven rug (like the user's frames 1664-1667): oatmeal/cream yarn in raised horizontal ribs
+    (~8 mm pitch) built from twisted loops (~5 mm), with heathered yarn tones and deep grooves between ribs so the
+    structure reads at the ~1.3 m play-camera distance. 0.5 m tile, tileable (all periods divide the tile)."""
     rng = np.random.default_rng(37)
     S = N
-    px = 500.0 / S  # 0.49 mm per pixel
-    nrows, ncols = 200, 172
-    ry, cx = S / nrows, S / ncols
-
-    # loop centres: staggered rows, jittered, with a gently meandering row line
-    ii, jj = np.mgrid[0:nrows, 0:ncols].astype(float)
-    meander = np.sin(jj / ncols * 2 * np.pi * 3 + rng.uniform(0, 6.28, (nrows, 1))) * 0.35
-    cyv = (ii + 0.5) * ry + rng.normal(0, 0.6, ii.shape) + meander
-    cxv = (jj + 0.5 + 0.5 * (ii % 2)) * cx + rng.normal(0, 0.55, ii.shape)
-    hgt_l = np.clip(rng.normal(1.0, 0.12, ii.shape), 0.6, 1.25)
-
-    # heathered yarn: each tufting row has a yarn bias, each loop picks a ply blend
-    pal = np.array([[200, 192, 180], [180, 171, 159], [160, 151, 140], [122, 114, 104]], float)
-    pick = rng.choice(4, size=ii.shape, p=[0.36, 0.47, 0.145, 0.025])
-    row_bias = rng.normal(0, 0.025, (nrows, 1))
-    lc = pal[pick] * (1 + row_bias + rng.normal(0, 0.03, ii.shape))[..., None]
-
-    def splat(vals):
-        img = np.zeros((S, S))
-        y0 = np.floor(cyv).astype(int)
-        x0 = np.floor(cxv).astype(int)
-        fy = cyv - y0
-        fx = cxv - x0
-        for dy, wy in ((0, 1 - fy), (1, fy)):
-            for dx, wx in ((0, 1 - fx), (1, fx)):
-                np.add.at(img, ((y0 + dy) % S, (x0 + dx) % S), vals * wy * wx)
-        return img
-
-    # loop footprint: rounded dome, slightly longer along the row
-    ky, kx = np.mgrid[-4:5, -4:5].astype(float)
-    rr = (kx / 3.7) ** 2 + (ky / 3.35) ** 2
-    dome = np.clip(1 - rr, 0, None) ** 0.65
-    wsum = pconv(splat(np.ones_like(hgt_l)), dome)
-    hraw = pconv(splat(hgt_l), dome)
-    cnum = [pconv(splat(lc[..., c] * hgt_l), dome) for c in range(3)]
-    cov = np.clip(wsum, 0, 1.3)
-    loopcol = np.stack([cnum[c] / np.maximum(hraw, 1e-3) for c in range(3)], -1)
-
-    fuzz = fnoise(rng, 260, 260, 1.2)
-    hn = np.clip(hraw, 0, 1.15) + fuzz * 0.06
-    hn = blur(hn, 1) * 0.6 + hn * 0.4  # soften the very highest frequencies (anti-moire)
-    ao = np.clip(hn / 1.0, 0, 1) ** 0.7
-
-    backing = np.array([120, 112, 103], float)
-    cmix = np.clip(cov / 0.9, 0, 1)[..., None]
-    alb = loopcol * cmix + backing * (1 - cmix)
-    alb = alb * (0.74 + 0.26 * ao)[..., None] * (1 + fuzz[..., None] * 0.025)
-
-    h = hn * 0.55  # mm
-    nrm = normal_map(h, px)
-    rgh = 0.78 + 0.22 * (1 - ao) + fuzz * 0.03
-    save('carpet', alb, nrm, np.clip(rgh, 0, 1), q_alb=82, q_nrm=72, q_rgh=70, rough_size=512)
+    y, x = np.mgrid[0:S, 0:S].astype(float)
+    rib_n = 62            # ribs per 0.5 m tile -> 8.1 mm pitch
+    loop_n = 100          # loops per rib along x -> 5 mm
+    ry = S / rib_n
+    # gentle hand-woven waviness of the rib lines (tileable: integer cycles)
+    wav = 0.9 * np.sin(2 * np.pi * x / S * 3 + 0.7) + 0.5 * np.sin(2 * np.pi * x / S * 7 + 2.1)
+    v = ((y + wav) / ry) % 1.0                      # 0..1 across one rib
+    rib_idx = np.floor((y + wav) / ry).astype(int) % rib_n
+    # rib cross-section: rounded hump with a narrow deep groove between ribs
+    hump = np.clip(np.sin(np.pi * v), 0, 1) ** 0.6
+    # twisted loops along the rib, alternating phase per rib (woven look)
+    phase = (rib_idx % 2) * 0.5
+    u = (x / (S / loop_n) + phase) % 1.0
+    twist = 0.5 + 0.5 * np.cos(2 * np.pi * (u - 0.35 * v))  # slanted ply highlights
+    loops = 0.55 + 0.45 * np.clip(np.sin(np.pi * u), 0, 1) ** 0.8
+    fuzz = fnoise(rng, fx=300, fy=300, power=1.2) * 0.08
+    height = hump * (0.75 + 0.25 * loops) + 0.12 * twist * hump + fuzz
+    # yarn colour: oatmeal/cream heather with per-rib and per-ply variation
+    base = np.array([214, 206, 192], float)
+    rib_tone = rng.normal(0, 0.025, rib_n)[rib_idx]
+    heather = fnoise(rng, fx=120, fy=40, power=1.3) * 0.035
+    fleck = (rng.random((S, S)) < 0.012).astype(float)
+    shade = 0.70 + 0.30 * hump                        # grooves darker (occlusion baked lightly)
+    ply = 0.94 + 0.08 * twist
+    val = shade * ply * (1 + rib_tone + heather)
+    alb = base[None, None, :] * val[..., None]
+    alb = alb * (1 - 0.18 * fleck[..., None]) + np.array([150, 140, 126])[None, None, :] * 0.18 * fleck[..., None]
+    nrm = normal_map(height * 2.6, 500.0 / S)   # ~2.6 mm rib relief
+    rough = np.clip(0.88 + 0.08 * (1 - hump), 0, 1)
+    save('carpet', alb, nrm, rough, rough_size=512)
 
 
 if __name__ == '__main__':

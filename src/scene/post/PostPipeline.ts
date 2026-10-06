@@ -130,6 +130,8 @@ export interface PostLook {
   exposure: number;
   /** 0 day … 1 night */
   night: number;
+  /** 0 play … 1 hero launch stage */
+  stage?: number;
 }
 
 export class PostPipeline {
@@ -228,6 +230,8 @@ export class PostPipeline {
   render(look: PostLook) {
     const r = this.renderer;
     const n = look.night;
+    const st = look.stage ?? 0;
+    const L = THREE.MathUtils.lerp;
     r.setRenderTarget(this.sceneRT);
     r.render(this.scene, this.camera);
 
@@ -240,17 +244,19 @@ export class PostPipeline {
     } else u.uAO.value = 0;
 
     // day: only true emitters (LEDs, ring) pass; night: lower threshold so the light pools glow softly
-    this.bloom.threshold = THREE.MathUtils.lerp(2.8, 0.55, n); // day: high enough that glossy clear-plastic speculars never bloom
-    this.bloom.strength = THREE.MathUtils.lerp(0.18, 0.75, n);
-    this.bloom.radius = THREE.MathUtils.lerp(0.35, 0.6, n);
+    // day: high enough that glossy clear-plastic speculars never bloom; hero stage: the LED rim line glows softly
+    this.bloom.threshold = L(L(2.8, 0.55, n), 2.2, st);
+    this.bloom.strength = L(L(0.18, 0.75, n), 0.45, st);
+    this.bloom.radius = L(L(0.35, 0.6, n), 0.5, st);
     if (this.dev !== 'nobloom') this.bloom.renderBloom(r, this.sceneRT);
     u.uBloom.value = this.dev === 'nobloom' ? 0 : 1;
 
     u.uExposure.value = look.exposure;
     u.uSat.value = THREE.MathUtils.lerp(0.97, 1.05, n);
-    u.uContrast.value = THREE.MathUtils.lerp(0.1, 0.06, n);
-    u.uVignette.value = THREE.MathUtils.lerp(0.1, 0.3, n);
-    u.uNight.value = n;
+    u.uContrast.value = L(L(0.1, 0.06, n), 0.08, st);
+    u.uVignette.value = L(L(0.1, 0.3, n), 0.36, st);
+    // the stage is a dark scene too: same black-level handling as night
+    u.uNight.value = Math.max(n, st);
     this.seed = (this.seed + 0.618) % 1;
     u.uSeed.value = this.seed;
     r.setRenderTarget(null);

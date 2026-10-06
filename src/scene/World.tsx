@@ -101,6 +101,8 @@ export function World({ stage, tier, attempt, maxDpr }: Props) {
   useFrame((_, dt) => {
     const e = exp.current;
     e?.update(dt);
+    // hero launch stage follows the floor reveal (Start dissolves it into the floor, Back restores it)
+    if (e) e.studio.setStage(e.floor.reveal);
     // day/night crossfade + LED-driven product lights; keep rendering while the transition runs
     if (e?.studio.update(dt)) invalidate();
     gov.current?.frame(dt);
@@ -115,7 +117,7 @@ export function World({ stage, tier, attempt, maxDpr }: Props) {
     }
     gl.info.reset();
     const st = exp.current?.studio;
-    pp.render({ exposure: st?.exposure ?? 1, night: st?.nightAmount ?? 0 });
+    pp.render({ exposure: st?.exposure ?? 1, night: st?.nightAmount ?? 0, stage: st?.stageAmount ?? 0 });
   }, 1);
 
   return null;

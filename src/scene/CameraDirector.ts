@@ -73,7 +73,8 @@ export class CameraDirector {
     let d = h / (2 * Math.tan(THREE.MathUtils.degToRad(fov / 2)));
     // narrow screens: make sure product + Start control fit horizontally (~0.78 m)
     const hfov = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(fov / 2)) * aspect);
-    const needW = 0.8;
+    // must fit: the product + Start control, and on the hero stage the podium (Ø ~0.9 m at the dock) with a margin
+    const needW = aspect < 0.8 ? 1.06 : 0.8;
     d = Math.max(d, needW / (2 * Math.tan(hfov / 2)));
     const shift = aspect > 1 ? HERO.lateralShift + Math.min(0.12, (aspect - 1) * 0.08) : 0.11;
     // vertical centering within the usable band

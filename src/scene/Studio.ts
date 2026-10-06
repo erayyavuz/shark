@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import type { QualityTier } from '../contracts/types';
 import { bakeEnv, buildDayEnvScene, buildNightEnvScene } from './lookdev/studioEnvironment';
 import { ProductLights } from './lookdev/productLights';
+import { HeroStage, STAGE_HORIZON } from './lookdev/heroStage';
 
 /**
  * Scene lighting.
@@ -72,6 +73,18 @@ const NIGHT: Look = {
   exposure: 1.1,
 };
 
+/** Hero launch stage: the global lights step back so the stage spots (lookdev/heroStage) shape the product. */
+const STAGE = {
+  bg: STAGE_HORIZON,
+  envI: 0.32,
+  keyI: 0.22,
+  rimI: 0.18,
+  hemiI: 0.02,
+  fogNear: 2.2,
+  fogFar: 7.5,
+  exposure: 1.05,
+};
+
 const TRANSITION = 0.85;
 
 export class Studio {
@@ -80,6 +93,7 @@ export class Studio {
   readonly fill: THREE.HemisphereLight;
   readonly practical: THREE.PointLight;
   readonly product: ProductLights;
+  readonly stage: HeroStage;
   readonly group = new THREE.Group();
   private envDay: THREE.Texture;
   private envNight: THREE.Texture;
@@ -94,6 +108,8 @@ export class Studio {
   private t = 1;
   private keyDir = new THREE.Vector3();
   private led = 0;
+  private stageS = 1;
+  private reveal = 0;
 
   constructor(private renderer: THREE.WebGLRenderer, private scene: THREE.Scene, tier: QualityTier) {
     this.envDay = bakeEnv(renderer, buildDayEnvScene());
@@ -127,6 +143,7 @@ export class Studio {
 
     scene.add(this.group);
     this.product = new ProductLights(scene, tier === 'high');
+    this.stage = new HeroStage(scene, tier);
     this.apply();
     this.setFocus(new THREE.Vector3(0, 0.55, 0), 0.9);
   }
@@ -173,7 +190,7 @@ export class Studio {
   }
 
   get exposure() {
-    return THREE.MathUtils.lerp(DAY.exposure, NIGHT.exposure, this.k);
+    return THREE.MathUtils.lerp(THREE.MathUtils.lerp(DAY.exposure, NIGHT.exposure, this.k), STAGE.exposure, this.stageS);
   }
 
   setMode(mode: 'day' | 'night') {
@@ -182,6 +199,24 @@ export class Studio {
     this.from = this.k;
     this.to = target;
     this.t = 0;
+  }
+
+  /**
+   * Hero stage presence, driven by the floor reveal (0 = hero stage, 1 = play floor). Call every frame with the
+   * same value Floor.reveal gets; Start (reveal 0→1) dissolves the stage into the floor, Back (1→0) restores it.
+   */
+  setStage(reveal: number) {
+    const s = 1 - THREE.MathUtils.smoothstep(reveal, 0.0, 0.6);
+    if (s === this.stageS && reveal === this.reveal) return;
+    this.reveal = reveal;
+    this.stageS = s;
+    this.stage.setAmount(s, reveal);
+    this.apply();
+  }
+
+  /** 0 = play look … 1 = hero stage (read by the post pipeline). */
+  get stageAmount() {
+    return this.stageS;
   }
 
   /** Advance transitions + product lights. Returns true while a transition is running. */
@@ -195,6 +230,7 @@ export class Studio {
       this.apply();
       animating = this.t < 1;
     }
+    this.product.stage = this.stageS;
     this.led = this.product.update();
     return animating;
   }
@@ -225,6 +261,23 @@ export class Studio {
     this.fill.intensity = THREE.MathUtils.lerp(DAY.hemiI, NIGHT.hemiI, k);
     this.practical.intensity = THREE.MathUtils.lerp(DAY.practicalI, NIGHT.practicalI, k);
     this.product.night = k;
+
+    // hero stage overrides the room look
+    const s = this.stageS;
+    if (s > 0) {
+      const L = THREE.MathUtils.lerp;
+      // linear-light lerp toward the pale room reads bright very early; hold the dark world, then lift it late
+      const sd = 1 - Math.pow(1 - s, 3);
+      this.bg.lerp(STAGE.bg, sd);
+      this.fog.color.copy(this.bg);
+      this.fog.near = L(this.fog.near, STAGE.fogNear, s);
+      this.fog.far = L(this.fog.far, STAGE.fogFar, s);
+      this.scene.environmentIntensity = L(this.scene.environmentIntensity, STAGE.envI, s);
+      this.key.intensity = L(this.key.intensity, STAGE.keyI, s);
+      this.rim.intensity = L(this.rim.intensity, STAGE.rimI, s);
+      this.fill.intensity = L(this.fill.intensity, STAGE.hemiI, s);
+      this.practical.intensity *= 1 - s;
+    }
     this.placeLights();
   }
 
@@ -240,6 +293,7 @@ export class Studio {
   dispose() {
     this.scene.remove(this.group);
     this.product.dispose();
+    this.stage.dispose();
     this.envDay.dispose();
     this.envNight.dispose();
     this.key.shadow.map?.dispose();

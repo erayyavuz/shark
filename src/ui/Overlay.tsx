@@ -73,7 +73,7 @@ export function Overlay({ onRetry }: { onRetry: () => void }) {
   const collapsed = ui.strokeActive;
 
   return (
-    <div className={`overlay phase-${ui.phase}${collapsed ? ' is-stroking' : ''}${ui.night ? ' is-night' : ''}`}>
+    <div className={`overlay phase-${ui.phase}${collapsed ? ' is-stroking' : ''}${ui.night || ui.phase === 'hero' || ui.phase === 'loading' || ui.phase === 'starting' || ui.phase === 'returning' ? ' is-night' : ''}`}>
       <header className="brand" data-ui-block>
         <span className="brand-name">Shark PowerDetect Clean &amp; Empty</span>
         {(ui.phase === 'hero' || ui.phase === 'loading') && <span className="brand-line">Make a mess.</span>}
@@ -129,11 +129,6 @@ export function Overlay({ onRetry }: { onRetry: () => void }) {
         </button>
       )}
 
-      {ui.phase === 'hero' && (
-        <button className="icon-btn night-hero" onClick={() => exp()?.setNight(!ui.night)} aria-pressed={ui.night} aria-label={ui.night ? 'Night lighting on' : 'Night lighting off'} title={ui.night ? 'Day' : 'Night'}>
-          <Icon name={ui.night ? 'sun' : 'moon'} />
-        </button>
-      )}
 
       {ui.phase === 'starting' && (
         <button className="skip pill ghost" onClick={() => exp()?.skipIntro()}>

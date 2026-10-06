@@ -179,6 +179,9 @@ export class ProductLights {
   }
 
   /** Re-binds to the current product automatically (model swaps, proxy rig). */
+  /** 0..1: hero stage visibility; the floor-lighting spots stay off while the product is presented on the podium */
+  stage = 0;
+
   update() {
     if (!this.head || !this.isAttached(this.head)) {
       const h = this.scene.getObjectByName('HeadLights');
@@ -187,6 +190,9 @@ export class ProductLights {
     }
     let level = 0;
     for (const m of this.ledMats) level = Math.max(level, (m.userData.ledLevel as number | undefined) ?? 0);
+    // on the dark hero stage the LED pools would read as stray white blobs on the podium: hold them back until the
+    // stage has dissolved into the room (the LED lenses themselves still light up via their materials)
+    level *= 1 - Math.min(1, this.stage * 1.25);
     const front = this.roleColor('headlight', this.cFront, WHITE);
     const rear = this.roleColor('accent', this.cRear, VIOLET);
 
