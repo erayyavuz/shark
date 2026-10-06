@@ -70,9 +70,12 @@ function addFresnelAlpha(m: THREE.MeshPhysicalMaterial, edgeAlpha: number, power
           float fr = pow(1.0 - ndv, uEdgePow);
           diffuseColor.a = mix(diffuseColor.a, uEdgeAlpha, fr);
         }`,
-      );
+      )
+      // the glass blend adds reflections at full strength: clamp HDR so a grazing softbox highlight on the thin
+      // clear shells stays a crisp specular instead of blooming into a 'lit' glow (hero view, day)
+      .replace('#include <opaque_fragment>', 'outgoingLight = min(outgoingLight, vec3(1.15));\n#include <opaque_fragment>');
   };
-  m.customProgramCacheKey = () => `fresnelAlpha:${edgeAlpha}:${power}`;
+  m.customProgramCacheKey = () => `fresnelAlpha:${edgeAlpha}:${power}:clamp`;
 }
 
 const RING: Record<RingState, THREE.Color> = {
