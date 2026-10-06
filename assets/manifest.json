@@ -1,0 +1,130 @@
+{
+  "asset": "Shark PowerDetect stick vacuum - interactive product model",
+  "sku": "IP1251EUT (working assumption, see PRODUCT_REFERENCE.md and DECISIONS.md)",
+  "provenance": "Self-authored procedural reconstruction. Generated entirely by scripts/blender/build_powerdetect.py (Blender 5.2.2, headless) from the parameter ledger in scripts/blender/params.py, which traces each dimension to PRODUCT_REFERENCE.md v1.0 / reference images V1-V9 / P1 dimensions. No third-party mesh, scan, CAD, image-to-3D output or purchased asset is included. Reference photographs were used only for measurement and visual comparison and are not shipped.",
+  "license": "Project-owned original work (procedural geometry, self-generated roller stripe texture). Not a manufacturer CAD model; inferred surfaces (underside, rear brushroll, neck joint internals, handle rear face) are approximations.",
+  "accuracy": "Reference-matched approximation. Overall envelope matches P1 (H 1.158, W 0.263, D 0.393) within a few mm; component proportions follow PRODUCT_REFERENCE.md. No claim of engineering/CAD accuracy.",
+  "branding": {
+    "decision": "No Shark logo, 'POWERDETECT', 'duoclean DETECT' or other lettering is reproduced. Label areas (head label plate, battery label panels, silver 'Shark' band, wand wordmark area, bridge-plate emboss, control screen) are modelled as correctly sized blank or subtly embossed plates.",
+    "reason": "Brief §7.2: never fake the Shark logo with generated lettering; no properly licensed brand artwork is available. Official artwork can later be applied to the existing blank plates (M_Label / M_HousingDark / M_Silver / M_Screen) with clean UVs."
+  },
+  "units": "meters",
+  "coordinates": {
+    "runtime": "glTF Y-up; floor y = 0; FloorHead-local +Z = head front",
+    "authoring": "Blender Z-up, head front = Blender -Y; glTF exporter maps Blender (x, y, z) -> glTF (x, z, -y)",
+    "origin": "VacuumRoot at floor level, centred between the front-roller and rear-brushroll contact lines"
+  },
+  "rig": {
+    "hierarchy": "VacuumRoot > FloorHead > {RollerFront, RollerRear, HeadLights, IntakeFront, IntakeRear, FloorContactAnchors > Contact_*, NeckPivot > LowerWand > FlexPivot > UpperWand > MotorAssembly > {DustbinShell, DustbinContents, PowerControlAnchor}}",
+    "nodes": [
+      "VacuumRoot",
+      "FloorHead",
+      "NeckPivot",
+      "LowerWand",
+      "FlexPivot",
+      "UpperWand",
+      "MotorAssembly",
+      "DustbinShell",
+      "DustbinContents",
+      "RollerFront",
+      "RollerRear",
+      "HeadLights",
+      "PowerControlAnchor",
+      "IntakeFront",
+      "IntakeRear",
+      "FloorContactAnchors"
+    ],
+    "contactAnchors": [
+      "Contact_RollerFront_L",
+      "Contact_RollerFront_R",
+      "Contact_RollerRear_L",
+      "Contact_RollerRear_R",
+      "Contact_Wheel_L",
+      "Contact_Wheel_R"
+    ],
+    "meshCarriers": "Rig nodes RollerFront, RollerRear, HeadLights, DustbinShell and DustbinContents carry their geometry on a child '<name>_Mesh' node, so mesh quantization never alters the rig node's own transform.",
+    "restPose": "All rig nodes have identity rotation and unit scale; wand vertical.",
+    "pitch": "NeckPivot.rotation.x = -pitch leans the wand back (toward -Z); rotation.z = sideways lean",
+    "fold": "FlexPivot.rotation.x = +fold folds the handheld forward (toward +Z); pivot sits on the front face of the wand top (foldAxisSign = 1 in rig.json)",
+    "rollers": "Spin about their node's local X axis; geometry centred on the node origin",
+    "dustbinContents": "Origin at the bin floor; runtime scale.y drives fill (mesh at scale 1 = ~1/3 full)",
+    "measurements": "public/models/rig.json (nozzle geometry measured from the finished floorhead mesh)"
+  },
+  "materials": {
+    "names": [
+      "M_Housing",
+      "M_HousingDark",
+      "M_Purple",
+      "M_PurpleMatte",
+      "M_ClearBin",
+      "M_ClearCover",
+      "M_Silver",
+      "M_Rubber",
+      "M_RollerFront",
+      "M_Bristle",
+      "M_LED",
+      "M_Turquoise",
+      "M_Hose",
+      "M_Label",
+      "M_Screen",
+      "M_LightStrip",
+      "M_Dust"
+    ],
+    "notes": "Principled BSDF only (glTF metallic-roughness + KHR transmission/ior/clearcoat). M_RollerFront uses the baked texture assets/source/textures/roller_front.png (1024x512, sRGB, embedded in the GLBs). Colours follow PRODUCT_REFERENCE.md §6 medians (purple #5A3C7E, grey #7D7B76, stripe #429688) and are art-direction estimates."
+  },
+  "sources": {
+    "blend": "assets/source/powerdetect.blend",
+    "build": "scripts/blender/build_powerdetect.py",
+    "params": "scripts/blender/params.py",
+    "renders": "scripts/blender/render_reference_views.py",
+    "pipeline": "scripts/assets-build.mjs (Blender build + meshopt), scripts/assets-validate.mjs",
+    "comparisons": "assets/reference-comparison/compare_*.png"
+  },
+  "runtimeLoading": "Compressed GLBs need GLTFLoader.setMeshoptDecoder(MeshoptDecoder) (three/examples/jsm/libs/meshopt_decoder.module.js). Uncompressed fallbacks: public/models/powerdetect-<tier>.uncompressed.glb.",
+  "files": {
+    "public/models/powerdetect-high.glb": {
+      "bytes": 2926332,
+      "triangles": 168435,
+      "compression": "EXT_meshopt_compression + KHR_mesh_quantization",
+      "uncompressedFallback": "public/models/powerdetect-high.uncompressed.glb",
+      "uncompressedBytes": 8603904
+    },
+    "public/models/powerdetect-balanced.glb": {
+      "bytes": 1963676,
+      "triangles": 102017,
+      "compression": "EXT_meshopt_compression + KHR_mesh_quantization",
+      "uncompressedFallback": "public/models/powerdetect-balanced.uncompressed.glb",
+      "uncompressedBytes": 6573780
+    }
+  },
+  "updated": "2026-10-05T19:22:47.597Z",
+  "bounds": {
+    "min": [
+      -0.132,
+      0,
+      -0.3248
+    ],
+    "max": [
+      0.132,
+      1.1584,
+      0.06826
+    ],
+    "size": [
+      0.264,
+      1.1584,
+      0.3931
+    ]
+  },
+  "nozzle": {
+    "intakeWidth": 0.2,
+    "intakeZMin": -0.0551,
+    "intakeZMax": 0.0625,
+    "shellWidth": 0.264,
+    "shellZMin": -0.1115,
+    "shellZMax": 0.0683
+  },
+  "triangles": {
+    "high": 135192,
+    "balanced": 57848
+  }
+}

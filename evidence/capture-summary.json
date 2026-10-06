@@ -1,0 +1,483 @@
+{
+ "env": {
+  "date": "2026-10-05T19:31:06.620Z",
+  "base": "http://127.0.0.1:5180/",
+  "chromium": "153.0.8010.12",
+  "webkit": "26.6",
+  "node": "v22.16.0",
+  "platform": "darwin arm64"
+ },
+ "core": {
+  "errors": [],
+  "heroConsole": [
+   "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  ],
+  "startTransitionTimesMs": {
+   "start-transition-early.png": 702,
+   "start-transition-mid.png": 1702,
+   "start-transition-end.png": 3002,
+   "activeAt": 3555
+  },
+  "dust": {
+   "before": {
+    "added": 233.88902570274917,
+    "collected": 0,
+    "remaining": 233.88902570274917,
+    "remainingFraction": 1
+   },
+   "after": {
+    "added": 233.88902570274917,
+    "collected": 224.4040164244009,
+    "remaining": 9.485009278348281,
+    "remainingFraction": 0.04055346012857752
+   }
+  },
+  "hair": {
+   "before": {
+    "added": 50.29136426468722,
+    "collected": 0,
+    "remaining": 50.29136426468722,
+    "remainingFraction": 1
+   },
+   "after": {
+    "added": 50.29136426468722,
+    "collected": 50.29136426468726,
+    "remaining": 1.6228685062458226e-13,
+    "remainingFraction": 3.2269327547062436e-15
+   }
+  },
+  "crumbs": {
+   "before": {
+    "added": 227.79255177976196,
+    "collected": 0,
+    "remaining": 227.79255177976196,
+    "remainingFraction": 1
+   },
+   "after": {
+    "added": 227.79255177976196,
+    "collected": 202.67984574845795,
+    "remaining": 25.11270603130397,
+    "remainingFraction": 0.11024375395550175
+   }
+  },
+  "floors": {
+   "before": {
+    "added": 164.01756671257974,
+    "collected": 0,
+    "remaining": 164.01756671257974,
+    "remainingFraction": 1
+   },
+   "after": {
+    "added": 164.01756671257974,
+    "collected": 0,
+    "remaining": 164.01756671257974,
+    "remainingFraction": 1
+   }
+  },
+  "inspect": {
+   "head": {
+    "x": 0,
+    "z": -0.66,
+    "yaw": 3.691592653589793
+   },
+   "frontTheta": 6.833185307179586
+  },
+  "reducedMotionActiveMs": 742,
+  "reducedMotionAccounting": {
+   "added": 73.35072541469354,
+   "collected": 0,
+   "remaining": 73.35072541469354,
+   "remainingFraction": 1
+  }
+ },
+ "viewports": [
+  {
+   "browser": "chromium",
+   "viewport": "1440x900",
+   "startButton": {
+    "x": 788,
+    "y": 126,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 333.4453125,
+    "y": 824,
+    "width": 773.109375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "chromium",
+   "viewport": "1920x1080",
+   "startButton": {
+    "x": 1026,
+    "y": 147,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 573.4453125,
+    "y": 1004,
+    "width": 773.109375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "chromium",
+   "viewport": "390x844",
+   "startButton": {
+    "x": 246,
+    "y": 122,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 12,
+    "y": 770,
+    "width": 366,
+    "height": 66
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "chromium",
+   "viewport": "430x932",
+   "startButton": {
+    "x": 269,
+    "y": 137,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 12,
+    "y": 858,
+    "width": 406,
+    "height": 66
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "chromium",
+   "viewport": "740x360",
+   "startButton": {
+    "x": 410,
+    "y": 80,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 209.828125,
+    "y": 294,
+    "width": 320.34375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "webkit",
+   "viewport": "1440x900",
+   "startButton": {
+    "x": 788,
+    "y": 126,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 333.5,
+    "y": 824,
+    "width": 773.109375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "webkit",
+   "viewport": "1920x1080",
+   "startButton": {
+    "x": 1026,
+    "y": 147,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 573.5,
+    "y": 1004,
+    "width": 773.109375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "webkit",
+   "viewport": "390x844",
+   "startButton": {
+    "x": 246,
+    "y": 122,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 12,
+    "y": 770,
+    "width": 366,
+    "height": 66
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "webkit",
+   "viewport": "430x932",
+   "startButton": {
+    "x": 269,
+    "y": 137,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 12,
+    "y": 858,
+    "width": 406,
+    "height": 66
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "browser": "webkit",
+   "viewport": "740x360",
+   "startButton": {
+    "x": 410,
+    "y": 80,
+    "width": 64,
+    "height": 88
+   },
+   "dock": {
+    "x": 210,
+    "y": 294,
+    "width": 320.34375,
+    "height": 58
+   },
+   "console": [
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "[warning] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  }
+ ],
+ "perfSummary": [
+  {
+   "browser": "chromium",
+   "browserVersion": "153.0.8010.12",
+   "viewport": "1440x900",
+   "frames": 744,
+   "meanMs": 16.69,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 33.3,
+   "over20ms": 1,
+   "lastDebug": "fps 60  p95 18.4ms  calls 121  tris 273k  geo 63  tex 45  dpr 1"
+  },
+  {
+   "browser": "chromium",
+   "browserVersion": "153.0.8010.12",
+   "viewport": "1920x1080",
+   "frames": 525,
+   "meanMs": 24.48,
+   "p50Ms": 16.7,
+   "p95Ms": 33.4,
+   "p99Ms": 33.4,
+   "maxMs": 83.3,
+   "over20ms": 240,
+   "lastDebug": "fps 41  p95 32.6ms  calls 119  tris 260k  geo 63  tex 45  dpr 1"
+  },
+  {
+   "browser": "chromium",
+   "browserVersion": "153.0.8010.12",
+   "viewport": "390x844",
+   "frames": 427,
+   "meanMs": 16.67,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 16.8ms  calls 114  tris 195k  geo 63  tex 39  dpr 1"
+  },
+  {
+   "browser": "chromium",
+   "browserVersion": "153.0.8010.12",
+   "viewport": "430x932",
+   "frames": 426,
+   "meanMs": 16.67,
+   "p50Ms": 16.7,
+   "p95Ms": 16.8,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 18.3ms  calls 114  tris 195k  geo 63  tex 39  dpr 1"
+  },
+  {
+   "browser": "chromium",
+   "browserVersion": "153.0.8010.12",
+   "viewport": "740x360",
+   "frames": 424,
+   "meanMs": 16.67,
+   "p50Ms": 16.7,
+   "p95Ms": 16.8,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 17.8ms  calls 109  tris 193k  geo 63  tex 39  dpr 1"
+  },
+  {
+   "browser": "webkit",
+   "browserVersion": "26.6",
+   "viewport": "1440x900",
+   "frames": 484,
+   "meanMs": 17.93,
+   "p50Ms": 17,
+   "p95Ms": 28,
+   "p99Ms": 33,
+   "maxMs": 35,
+   "over20ms": 90,
+   "lastDebug": "fps 59  p95 30.0ms  calls 121  tris 273k  geo 63  tex 45  dpr 1"
+  },
+  {
+   "browser": "webkit",
+   "browserVersion": "26.6",
+   "viewport": "1920x1080",
+   "frames": 356,
+   "meanMs": 26.15,
+   "p50Ms": 27,
+   "p95Ms": 35,
+   "p99Ms": 41,
+   "maxMs": 60,
+   "over20ms": 254,
+   "lastDebug": "fps 35  p95 35.0ms  calls 119  tris 259k  geo 63  tex 45  dpr 1"
+  },
+  {
+   "browser": "webkit",
+   "browserVersion": "26.6",
+   "viewport": "390x844",
+   "frames": 428,
+   "meanMs": 16.67,
+   "p50Ms": 17,
+   "p95Ms": 18,
+   "p99Ms": 19,
+   "maxMs": 19,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 18.0ms  calls 116  tris 195k  geo 63  tex 39  dpr 1"
+  },
+  {
+   "browser": "webkit",
+   "browserVersion": "26.6",
+   "viewport": "430x932",
+   "frames": 429,
+   "meanMs": 16.67,
+   "p50Ms": 17,
+   "p95Ms": 19,
+   "p99Ms": 19,
+   "maxMs": 19,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 19.0ms  calls 116  tris 195k  geo 63  tex 39  dpr 1"
+  },
+  {
+   "browser": "webkit",
+   "browserVersion": "26.6",
+   "viewport": "740x360",
+   "frames": 429,
+   "meanMs": 16.67,
+   "p50Ms": 17,
+   "p95Ms": 18,
+   "p99Ms": 19,
+   "maxMs": 19,
+   "over20ms": 0,
+   "lastDebug": "fps 60  p95 18.0ms  calls 106  tris 187k  geo 63  tex 39  dpr 1"
+  }
+ ],
+ "log": [
+  "core evidence (chromium)",
+  "  saved hero-desktop.png",
+  "  saved hero-mobile.png",
+  "  saved start-transition-early.png",
+  "  saved start-transition-mid.png",
+  "  saved start-transition-end.png",
+  "  saved active-after-intro.png",
+  "  saved dust-before.png",
+  "  saved dust-midstroke.png",
+  "  saved dust-after.png",
+  "  saved hair-before.png",
+  "  saved hair-capture-sequence-1..4.png",
+  "  saved hair-after.png",
+  "  saved crumbs-before.png",
+  "  saved crumbs-mid-pickup.png",
+  "  saved oak-active.png",
+  "  saved stone-active.png",
+  "  saved carpet-active.png",
+  "  saved product-front.png",
+  "  saved product-three-quarter.png",
+  "  saved product-side.png",
+  "  saved product-back.png",
+  "  saved head-closeup.png",
+  "  saved bin-closeup.png",
+  "  saved reduced-motion.png",
+  "  saved mobile-controls.png",
+  "  saved mobile-dirt-drawer.png",
+  "  saved mobile-floor-drawer.png",
+  "  saved mobile-midstroke.png",
+  "  saved fallback-nowebgl.png",
+  "  saved fallback-asset-error.png",
+  "viewport chromium 1440x900",
+  "viewport chromium 1920x1080",
+  "viewport chromium 390x844",
+  "viewport chromium 430x932",
+  "viewport chromium 740x360",
+  "viewport webkit 1440x900",
+  "viewport webkit 1920x1080",
+  "viewport webkit 390x844",
+  "viewport webkit 430x932",
+  "viewport webkit 740x360",
+  "perf chromium 1440x900",
+  "perf chromium 1920x1080",
+  "perf chromium 390x844",
+  "perf chromium 430x932",
+  "perf chromium 740x360",
+  "perf webkit 1440x900",
+  "perf webkit 1920x1080",
+  "perf webkit 390x844",
+  "perf webkit 430x932",
+  "perf webkit 740x360",
+  "saved perf.json",
+  "video (chromium 1280×720)",
+  "  saved interaction.webm"
+ ]
+}

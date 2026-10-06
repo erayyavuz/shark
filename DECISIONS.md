@@ -1,0 +1,24 @@
+# Decisions
+
+- **2026-10-04 SKU**: IP1251EUT assumed (brief §2). User did not specify a SKU; documented in PRODUCT_REFERENCE.md.
+- **2026-10-04 Toolchain**: Pinned exact versions (vite 8.3.2, react 19.3.0, three 0.186.1, @react-three/fiber 9.8.1 (peer react <19.4 ok), zustand 5.0.15, typescript 7.0.2, vitest 5.0.3, @playwright/test 1.63.0). Drei and GSAP skipped to keep the bundle lean; a small explicit timeline is the single animation owner.
+- **2026-10-04 Asset route**: No user-supplied CAD; Blender 5.2.2 installed via Homebrew cask; procedural Python modeling is the primary route (brief §7.1 step 3).
+- **2026-10-04 Coordinates**: Y-up meters; head-local +Z = front. VacuumRoot.rotation.y = yaw + π. See src/contracts/world.ts.
+- **2026-10-04 Play area**: 1.4 m × 1.0 m centered at origin (portrait 0.9 × 1.1) (tunable in contracts).
+- **2026-10-04 Interaction**: Pressing on the head (≤ 16 cm from intake centre) keeps the exact grab offset; pressing elsewhere glides the head under the pointer (offset decays with τ = 0.3 s through the speed-limited controller — never a teleport).
+- **2026-10-04 Active composition**: head front angled toward the viewer (yaw π + 0.55), wand trailing away; camera solved per aspect so the play rectangle fits between UI insets.
+- **2026-10-04 Branding**: no Shark / POWERDETECT / duoclean lettering on the model (blank label plates); UI shows plain-text product name only.
+- **2026-10-04 Power control**: PowerControlAnchor sits on the end-cap control screen (manual p11); the Start UI is projected to its right.
+- **2026-10-04 Backdrop**: solid studio colour equal to fog colour (no horizon seam); tonal falloff from floor lighting + fog.
+- **2026-10-04 Loading**: balanced GLB first; desktop tier upgrades to the high GLB in the background and swaps only while in hero.
+- **2026-10-04 Test hook**: read-only `window.__pd` (phase, accounting, head, area) for browser tests.
+- **2026-10-05 Product change (user)**: target is now IA3246GN Shark PowerDetect Speed Clean & Empty – Luxe Sagewood (Amazon B0GTC1N9RV). The dock is part of the product and is modelled (`DockRoot`); hero shows the stick docked at DOCK home (0, −0.9); Start pulls it out into the play area in front of the dock. Old IP1251EUT asset kept in git history only.
+- **2026-10-05 Markings**: user requires an exact replica, so product markings are reproduced as decals extracted from official product imagery (not re-typeset in a substitute font); they remain SharkNinja trademarks — see ASSET_CREDITS.md. UI keeps plain-text naming and the "Independent concept" label.
+- **2026-10-05 Agents**: user explicitly requested up to 5 parallel agents → v2 split into per-part Blender modules (floorhead / wand / handheld / dock) + materials, coordinated through scripts/blender/v2/PARTS_CONTRACT.md and params.py.
+- **2026-10-05 UI accent**: copper (#94603F) replaces purple, matching the new finish.
+- **2026-10-05 Spun copper discs**: neck disc + head cap discs use polar UVs with u = radius/0.05, v = angle × integer wraps (brushed texture streaks along V → concentric spun grooves). Do not flip to u = angle.
+- **2026-10-05 IP3251 target (user)**: Shark PowerDetect Clean & Empty IP3251EUT (TR), from the user's own video frames; v3 pipeline (scripts/blender/v3). Stick = IP1251 hardware.
+- **2026-10-05 IP3251 interfaces**: WAND_FWD −0.123 (manual side + V5 top), NeckPivot (0, 0.042, −0.123) = low lateral pitch barrel, FlexPivot (0, 0.663, −0.098), handheld axis −0.1445. RollerFront = black soft roller w/ turquoise helix; RollerRear = mint roller w/ golden chevron (seen through the top window).
+- **2026-10-05 Lights**: floorhead front corners = WHITE headlights (M_LED); violet = rear-corner LEDs + strip behind the roller window (M_LEDAccent); screen ring M_LEDRing; dock only light = bin-full pill (M_DockDisplay); the round dock top part is a printed anti-odour dial.
+- **2026-10-05 Docked pose**: rear wheels on the 13.5 mm dock base plate, floorhead tips ~5° nose-down about its front contact; the neck compensates so the wand stays vertical (runtime `dockTilt`).
+- **2026-10-05 Height deviation accepted**: manual side drawings + V2 show the handle tip ~33 mm above the cap face; official 115.8/117.7 cm are likely to the handle tip, making our stack (cap at 1.158) ≈2.8% tall. Accepted (≤3%) instead of rescaling all parts.

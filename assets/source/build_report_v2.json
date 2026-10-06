@@ -1,0 +1,211 @@
+{
+  "tiers": {
+    "high": {
+      "triangles": 195132,
+      "perObject": {
+        "HeadLights_Mesh": 248,
+        "FloorHead_Body": 28670,
+        "RollerFront_Mesh": 18192,
+        "LowerWand_Body": 29322,
+        "UpperWand_Body": 9078,
+        "Display_Mesh": 182,
+        "DustbinShell_Mesh": 2048,
+        "MotorAssembly_Body": 75670,
+        "DustbinContents_Mesh": 512,
+        "Dock_Body": 31210
+      },
+      "bytes": 6993988,
+      "materials": [
+        "M_Bristle",
+        "M_Chrome",
+        "M_ClearBin",
+        "M_ClearSmoke",
+        "M_Copper",
+        "M_CopperBrush",
+        "M_CopperSatin",
+        "M_Decal",
+        "M_Dust",
+        "M_Graphite",
+        "M_Hose",
+        "M_LED",
+        "M_LEDAccent",
+        "M_LEDRing",
+        "M_PlateGrey",
+        "M_Rubber",
+        "M_Sage",
+        "M_SageDeep",
+        "M_Screen",
+        "M_SilverBrush"
+      ]
+    },
+    "balanced": {
+      "triangles": 107367,
+      "perObject": {
+        "HeadLights_Mesh": 248,
+        "FloorHead_Body": 19360,
+        "RollerFront_Mesh": 5328,
+        "LowerWand_Body": 16262,
+        "UpperWand_Body": 5990,
+        "Display_Mesh": 182,
+        "DustbinShell_Mesh": 1152,
+        "MotorAssembly_Body": 38285,
+        "DustbinContents_Mesh": 512,
+        "Dock_Body": 20048
+      },
+      "bytes": 4467704,
+      "materials": [
+        "M_Bristle",
+        "M_Chrome",
+        "M_ClearBin",
+        "M_ClearSmoke",
+        "M_Copper",
+        "M_CopperBrush",
+        "M_CopperSatin",
+        "M_Decal",
+        "M_Dust",
+        "M_Graphite",
+        "M_Hose",
+        "M_LED",
+        "M_LEDAccent",
+        "M_LEDRing",
+        "M_PlateGrey",
+        "M_Rubber",
+        "M_Sage",
+        "M_SageDeep",
+        "M_Screen",
+        "M_SilverBrush"
+      ]
+    }
+  },
+  "rig": {
+    "product": "Shark PowerDetect Speed Clean & Empty IA3246GN (Sagewood)",
+    "units": "meters",
+    "upAxis": "+Y",
+    "headFront": "+Z (FloorHead local)",
+    "nozzle": {
+      "intakeWidth": 0.211,
+      "intakeZMin": -0.026,
+      "intakeZMax": 0.03,
+      "shellWidth": 0.2638,
+      "shellZMin": -0.126,
+      "shellZMax": 0.0491
+    },
+    "rollerFrontRadius": 0.024,
+    "rollerRearRadius": 0.024,
+    "neckPivot": [
+      0.0,
+      0.045,
+      -0.1
+    ],
+    "flexPivot": [
+      0.0,
+      0.647,
+      -0.0665
+    ],
+    "powerControlAnchor": [
+      0.01244,
+      1.13995,
+      -0.14235
+    ],
+    "anchors": {
+      "NeckPivot": [
+        0.0,
+        0.045,
+        -0.1
+      ],
+      "FlexPivot": [
+        0.0,
+        0.647,
+        -0.0665
+      ],
+      "PowerControlAnchor": [
+        0.01244,
+        1.13995,
+        -0.14235
+      ],
+      "IntakeFront": [
+        0.0,
+        0.0,
+        0.03
+      ],
+      "IntakeRear": [
+        0.0,
+        0.0,
+        -0.026
+      ],
+      "MotorAssembly": [
+        0.0,
+        0.835,
+        -0.1
+      ],
+      "LowerWand": [
+        0.0,
+        0.045,
+        -0.1
+      ],
+      "UpperWand": [
+        0.0,
+        0.647,
+        -0.0665
+      ]
+    },
+    "contacts": {
+      "Contact_Brushroll": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "Contact_CombFront": [
+        0.0,
+        0.0,
+        0.042
+      ],
+      "Contact_GlideL": [
+        -0.121,
+        0.0,
+        0.032
+      ],
+      "Contact_GlideR": [
+        0.121,
+        0.0,
+        0.032
+      ],
+      "Contact_WheelL": [
+        -0.05625,
+        0.0,
+        -0.1
+      ],
+      "Contact_WheelR": [
+        0.05625,
+        0.0,
+        -0.1
+      ]
+    },
+    "bounds": {
+      "size": [
+        0.2638,
+        1.14,
+        0.3791
+      ]
+    },
+    "dock": {
+      "present": true,
+      "node": "DockRoot",
+      "bounds": {
+        "min": [
+          -0.111,
+          0.0,
+          -0.58033
+        ],
+        "max": [
+          0.23094,
+          0.89798,
+          -0.07588
+        ]
+      }
+    },
+    "foldAxisSign": 1,
+    "pitchConvention": "runtime sets NeckPivot.rotation.x = -pitch; rest rotations identity",
+    "generatedBy": "scripts/blender/v2/assemble.py"
+  }
+}

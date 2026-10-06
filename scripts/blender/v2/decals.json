@@ -1,0 +1,130 @@
+{
+  "atlas": "assets/source/textures/v2/decal_atlas.png",
+  "size": [
+    2048,
+    1024
+  ],
+  "uv_convention": "Blender UV, origin bottom-left, rect = [u0, v0, u1, v1]. 'ink' = tight box of the letters; map your plate's full face to 'ink' so the marking fills it edge to edge, or to 'slot' for a margin. glyph 'up' = +v.",
+  "slots": {
+    "pds_wand_white": {
+      "slot": [
+        0.0,
+        0.78125,
+        1.0,
+        1.0
+      ],
+      "ink": [
+        0.04004,
+        0.82617,
+        0.95996,
+        0.95605
+      ],
+      "inkAspect": 14.1654,
+      "colorSRGB": "#f7f7f5",
+      "where": "copper lower wand front face. Reads top->bottom along the wand; seen from the front the glyph tops face the viewer's right (text rotated 90 deg CW). Hero: ink length ~245 px / 1.559 = ~157 mm, cap height ~11 mm."
+    },
+    "pds_band_dark": {
+      "slot": [
+        0.0,
+        0.5625,
+        1.0,
+        0.78125
+      ],
+      "ink": [
+        0.04004,
+        0.60742,
+        0.95996,
+        0.7373
+      ],
+      "inkAspect": 14.1654,
+      "colorSRGB": "#1f2120",
+      "where": "handheld: brushed silver band directly under the Shark plate, horizontal, centred. Hero: band ~90 px = 58 mm wide, ink fills ~85 % -> ~49 mm long, ~3.5 mm cap height."
+    },
+    "shark_white": {
+      "slot": [
+        0.0,
+        0.3125,
+        0.375,
+        0.5625
+      ],
+      "ink": [
+        0.01514,
+        0.34668,
+        0.35986,
+        0.52832
+      ],
+      "inkAspect": 3.7957,
+      "colorSRGB": "#f4f5f4",
+      "where": "handheld front grey plate (above the band), and the dark plate on the handle top (sn-gal1). Hero: ink width ~62 px = ~40 mm on the handheld."
+    },
+    "shark_neck": {
+      "slot": [
+        0.375,
+        0.3125,
+        0.75,
+        0.5625
+      ],
+      "ink": [
+        0.39014,
+        0.34668,
+        0.73486,
+        0.52832
+      ],
+      "inkAspect": 3.7957,
+      "colorSRGB": "#e0e1e0",
+      "where": "floorhead neck/yoke top plate in front of the wand knuckle (printed light grey). Hero: ink width ~58 px = ~37 mm."
+    },
+    "turbopro_detect": {
+      "slot": [
+        0.0,
+        0.1875,
+        0.75,
+        0.3125
+      ],
+      "ink": [
+        0.02979,
+        0.19531,
+        0.71973,
+        0.30469
+      ],
+      "inkAspect": 12.6161,
+      "colorSRGB": "#e2e2e1",
+      "where": "floorhead smoked brushroll window, left of centre, horizontal, on the window's front face. Hero: ink width ~120 px / 1.6 = ~75 mm, starts ~22 mm from the window's left end."
+    },
+    "display_icons": {
+      "slot": [
+        0.75,
+        0.14062,
+        1.0,
+        0.5625
+      ],
+      "ink": [
+        0.79004,
+        0.1582,
+        0.95947,
+        0.5459
+      ],
+      "inkAspect": 0.8741,
+      "colorSRGB": "#9fcbe6",
+      "where": "handheld UI screen (rear of the handheld, above the handle, per owner's guide p.7): eco leaf / detect rings / boost swirl / drop icons, light bar, battery icon. Map onto the M_Screen face (decal plate 0.2 mm above). Ink brightness encodes lit vs unlit (grey) as drawn in the guide; lit glyph colour #9fcbe6 (ref-director median of the Sagewood display glyphs, light ice-blue)."
+    },
+    "dock_moon": {
+      "slot": [
+        0.875,
+        0.0,
+        1.0,
+        0.125
+      ],
+      "ink": [
+        0.88477,
+        0.00586,
+        0.99023,
+        0.12012
+      ],
+      "inkAspect": 1.8462,
+      "colorSRGB": "#ecedec",
+      "where": "dock: Quiet-mode moon icon above the slide switch (owner's guide p.16). Cell = the dock agent's existing square 8.5 mm quad (u 0.875-1, v 0-0.125); the 256x128 px cell is drawn PRE-STRETCHED 2:1 so it reads round on that square quad (pixelAspect 2).",
+      "pixelAspect": 2.0
+    }
+  }
+}

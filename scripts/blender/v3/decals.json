@@ -1,0 +1,226 @@
+{
+  "atlas": "assets/source/textures/v3/decal_atlas.png",
+  "size": [
+    2048,
+    2048
+  ],
+  "uv_convention": "Blender UV, origin bottom-left, rect = [u0, v0, u1, v1]. 'ink' = tight box of the marking; map your plate face to 'ink' (marking fills it edge to edge) or to 'slot' (margin). glyph up = +v. Use materials.decal_uv(slot, s, t).",
+  "slots": {
+    "wand_shark_powerdetect": {
+      "slot": [
+        0.0,
+        0.875,
+        1.0,
+        1.0
+      ],
+      "ink": [
+        0.04004,
+        0.90283,
+        0.95996,
+        0.97217
+      ],
+      "inkAspect": 13.2676,
+      "colorSRGB": "#3a3834",
+      "where": "wand tube FRONT face. On the product the text reads TOP->BOTTOM along the wand and the glyph tops face the viewer's RIGHT (text rotated 90 deg clockwise; raw/tr-ip3251eut-11, cl-eut-01). Map u (atlas left->right) to wand top->bottom, v (glyph up) to product +x. cl-eut-01 (front ortho, 1.555 px/mm): ink 174 mm long x 13.2 mm high (incl. 'k' ascender), starts ~ 22 mm below the top collar. Dark graphite ink on M_Bronze.",
+      "status": "extracted"
+    },
+    "powerdetect_plate": {
+      "slot": [
+        0.0,
+        0.8125,
+        0.5,
+        0.875
+      ],
+      "ink": [
+        0.02002,
+        0.81982,
+        0.47998,
+        0.86816
+      ],
+      "inkAspect": 9.5152,
+      "colorSRGB": "#34322e",
+      "where": "champagne label band directly under the purple cap, front, horizontal, centred (user frame 1663, cl-eut-01). Ink length ~ 45 mm (same POWERDETECT artwork as the wand, true proportions). Dark ink on M_Champagne.",
+      "status": "extracted"
+    },
+    "dock_powerdetect": {
+      "slot": [
+        0.5,
+        0.8125,
+        1.0,
+        0.875
+      ],
+      "ink": [
+        0.52002,
+        0.81982,
+        0.97998,
+        0.86816
+      ],
+      "inkAspect": 9.5152,
+      "colorSRGB": "#34322e",
+      "where": "dock tower front face, top-right badge (tr-part-2-0l-aed-eu-fisi-1, cl-eut-01): champagne plate with a thin dark border, POWERDETECT horizontal. Ink ~ 34 mm long. Plate geometry = M_Champagne.",
+      "status": "extracted"
+    },
+    "duoclean_detect": {
+      "slot": [
+        0.0,
+        0.6875,
+        0.625,
+        0.8125
+      ],
+      "ink": [
+        0.0249,
+        0.71338,
+        0.59961,
+        0.78662
+      ],
+      "inkAspect": 7.8467,
+      "colorSRGB": "#36373a",
+      "where": "floorhead front cover plate (light grey strip on the clear cover, centred over the soft roller, cl-na-06 / cl-eut-01 / user 1663). Horizontal, glyph up = product up/back. Ink ~ 95 mm long. Dark grey ink.",
+      "status": "extracted"
+    },
+    "shark_frame": {
+      "slot": [
+        0.625,
+        0.6875,
+        1.0,
+        0.8125
+      ],
+      "ink": [
+        0.64014,
+        0.70508,
+        0.98486,
+        0.79492
+      ],
+      "inkAspect": 3.837,
+      "colorSRGB": "#ecedec",
+      "where": "handheld brushed-silver bin frame top band, front, centred, horizontal (user 1663: white/light ink; cl-eut-01 reads light grey). Ink width ~ 38 mm.",
+      "status": "extracted"
+    },
+    "shark_neck": {
+      "slot": [
+        0.0,
+        0.5625,
+        0.375,
+        0.6875
+      ],
+      "ink": [
+        0.01514,
+        0.58008,
+        0.35986,
+        0.66992
+      ],
+      "inkAspect": 3.837,
+      "colorSRGB": "#e4e5e4",
+      "where": "floorhead neck top plate (dark), light ink, glyph up = toward the wand / rear (user 1663, 1667). Ink ~ 36 mm.",
+      "status": "extracted"
+    },
+    "dock_binfull": {
+      "slot": [
+        0.375,
+        0.5625,
+        0.625,
+        0.6875
+      ],
+      "ink": [
+        0.38867,
+        0.58643,
+        0.60986,
+        0.66455
+      ],
+      "inkAspect": 2.8312,
+      "colorSRGB": "#f4f6ff",
+      "where": "dock DUST BIN FULL pill window (TR manual p14): bin-with-dust icon then moon, laid out along the pill's LONG axis = u (bin icon at low u = the end nearest the post), glyph up = +v. Use on an M_DockDisplay plate (glyphs glow when lit) over an M_Screen window. Brightness as drawn (bin icon grey, moon white).",
+      "status": "extracted"
+    },
+    "screen_icons_tr": {
+      "slot": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ink": [
+        0.01953,
+        0.01953,
+        0.48047,
+        0.48047
+      ],
+      "inkAspect": 1.0,
+      "colorSRGB": "#ffffff",
+      "where": "handheld round screen face, TR layout (TR manual p8 vector glyphs, confirmed + coloured by the TR unit's shipping film, frames/vid-T9U8rtc6cJk-t1010.0): DETECT target top (white), ECO leaf (green) / BOOST fan (red) either side, battery bar (white), battery-bolt + 'FO', solid power pill. No drop icon. Slot = circumscribed square of the BLACK screen disc (ring arcs excluded -> M_LEDRing geometry at 0.83-0.93 R). Glyph up = toward the handle-far edge (power pill nearest the grip).",
+      "status": "extracted"
+    },
+    "odour_dial": {
+      "slot": [
+        0.5,
+        0.0,
+        1.0,
+        0.5
+      ],
+      "ink": [
+        0.51953,
+        0.01953,
+        0.98047,
+        0.48047
+      ],
+      "inkAspect": 1.0,
+      "colorSRGB": "#28bea8",
+      "where": "dock odour-neutraliser dial top face (EU print 'ANTI-ODOUR TECHNOLOGY' + hexagon logo, padlock, open-lock, +/- wedge arc; tr-ip3251eut-01 inset). Slot = circumscribed square of the face disc. Rim triangle index is NOT included (sits on the rim ring).",
+      "status": "extracted"
+    },
+    "edge_detect": {
+      "slot": [
+        0.625,
+        0.625,
+        1.0,
+        0.6875
+      ],
+      "ink": [
+        0.66357,
+        0.62793,
+        0.96143,
+        0.68506
+      ],
+      "inkAspect": 5.2137,
+      "colorSRGB": "#d6d7d8",
+      "where": "floorhead side caps: front-top face of BOTH caps, 'EDGE DETECT' ('EDGE' bold) reading bottom->top on the real unit (vid-JCGXMfx8SG8 t176.9; glyph tops toward the head centre on the right cap). Light-grey ink. Ink ~ 26 mm.",
+      "status": "extracted"
+    },
+    "foot_icon": {
+      "slot": [
+        0.8125,
+        0.5,
+        0.875,
+        0.625
+      ],
+      "ink": [
+        0.81641,
+        0.50537,
+        0.87109,
+        0.62012
+      ],
+      "inkAspect": 0.4766,
+      "colorSRGB": "#d6d7d8",
+      "where": "floorhead deck top, right of the neck plate as seen from the front-top (= product's LEFT), shoe-sole pictogram (step-on-to-release). Toe up = toward the rear/neck. Light-grey ink. Ink ~ 9 x 18 mm.",
+      "status": "extracted"
+    },
+    "rating_label": {
+      "slot": [
+        0.625,
+        0.53125,
+        0.8125,
+        0.625
+      ],
+      "ink": [
+        0.63232,
+        0.53662,
+        0.80469,
+        0.62012
+      ],
+      "inkAspect": 2.0643,
+      "colorSRGB": "#f1f1ef",
+      "where": "floorhead neck UNDERSIDE white rating sticker 'Shark Power Nozzle / Model: IP3251 T6 / 14.5V 120W' (vid-wuXUwo0Itxg t160). Full-colour opaque sticker (white paper + black print, rounded corners); aspect 2.05 after foreshortening correction (low-res source: ~10 px glyphs). ~ 30 x 15 mm.",
+      "status": "extracted"
+    }
+  }
+}

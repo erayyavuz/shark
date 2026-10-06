@@ -1,0 +1,688 @@
+{
+  "tiers": {
+    "high": {
+      "triangles": 135192,
+      "perObject": {
+        "HeadLights_Mesh": 24,
+        "FloorHead_Body": 37612,
+        "RollerFront_Mesh": 36800,
+        "RollerRear_Mesh": 1872,
+        "LowerWand_Body": 8168,
+        "UpperWand_Body": 1076,
+        "DustbinShell_Mesh": 1600,
+        "DustbinContents_Mesh": 528,
+        "MotorAssembly_Body": 47512
+      },
+      "file": "public/models/powerdetect-high.glb",
+      "bytes": 3986688,
+      "materials": [
+        "M_Bristle",
+        "M_ClearBin",
+        "M_ClearCover",
+        "M_Dust",
+        "M_Hose",
+        "M_Housing",
+        "M_HousingDark",
+        "M_LED",
+        "M_Label",
+        "M_LightStrip",
+        "M_Purple",
+        "M_PurpleMatte",
+        "M_RollerFront",
+        "M_Rubber",
+        "M_Screen",
+        "M_Silver",
+        "M_Turquoise"
+      ]
+    },
+    "balanced": {
+      "triangles": 57848,
+      "perObject": {
+        "HeadLights_Mesh": 24,
+        "FloorHead_Body": 15744,
+        "RollerFront_Mesh": 7840,
+        "RollerRear_Mesh": 1664,
+        "LowerWand_Body": 4576,
+        "UpperWand_Body": 836,
+        "DustbinShell_Mesh": 768,
+        "DustbinContents_Mesh": 256,
+        "MotorAssembly_Body": 26140
+      },
+      "file": "public/models/powerdetect-balanced.glb",
+      "bytes": 2295880,
+      "materials": [
+        "M_Bristle",
+        "M_ClearBin",
+        "M_ClearCover",
+        "M_Dust",
+        "M_Hose",
+        "M_Housing",
+        "M_HousingDark",
+        "M_LED",
+        "M_Label",
+        "M_LightStrip",
+        "M_Purple",
+        "M_PurpleMatte",
+        "M_RollerFront",
+        "M_Rubber",
+        "M_Screen",
+        "M_Silver",
+        "M_Turquoise"
+      ]
+    }
+  },
+  "rig": {
+    "units": "meters",
+    "upAxis": "+Y",
+    "headFront": "+Z (FloorHead local)",
+    "nozzle": {
+      "intakeWidth": 0.2,
+      "intakeZMin": -0.0551,
+      "intakeZMax": 0.0625,
+      "shellWidth": 0.264,
+      "shellZMin": -0.1115,
+      "shellZMax": 0.0683
+    },
+    "rollerFrontRadius": 0.0275,
+    "rollerRearRadius": 0.02,
+    "rollerFrontLength": 0.196,
+    "rollerRearLength": 0.19,
+    "rollerFrontCenter": [
+      0.0,
+      0.0275,
+      0.035
+    ],
+    "rollerRearCenter": [
+      0.0,
+      0.021,
+      -0.035
+    ],
+    "neckPivot": [
+      0.0,
+      0.1,
+      -0.081
+    ],
+    "flexPivot": [
+      0.0,
+      0.663,
+      -0.056
+    ],
+    "powerControlAnchor": [
+      0.0,
+      1.1584,
+      -0.1385
+    ],
+    "anchors": {
+      "NeckPivot": [
+        0.0,
+        0.1,
+        -0.081
+      ],
+      "FlexPivot": [
+        0.0,
+        0.663,
+        -0.056
+      ],
+      "PowerControlAnchor": [
+        0.0,
+        1.1584,
+        -0.1385
+      ],
+      "IntakeFront": [
+        0.0,
+        0.0,
+        0.035
+      ],
+      "IntakeRear": [
+        0.0,
+        0.0,
+        -0.035
+      ],
+      "MotorAssembly": [
+        0.0,
+        0.812,
+        -0.116
+      ],
+      "LowerWand": [
+        0.0,
+        0.1,
+        -0.081
+      ],
+      "UpperWand": [
+        0.0,
+        0.663,
+        -0.056
+      ]
+    },
+    "contacts": {
+      "Contact_RollerFront_L": [
+        -0.086,
+        0.0,
+        0.035
+      ],
+      "Contact_RollerFront_R": [
+        0.086,
+        0.0,
+        0.035
+      ],
+      "Contact_RollerRear_L": [
+        -0.086,
+        0.0,
+        -0.035
+      ],
+      "Contact_RollerRear_R": [
+        0.086,
+        0.0,
+        -0.035
+      ],
+      "Contact_Wheel_L": [
+        -0.0605,
+        0.0,
+        -0.088
+      ],
+      "Contact_Wheel_R": [
+        0.0605,
+        0.0,
+        -0.088
+      ]
+    },
+    "bounds": {
+      "min": [
+        -0.132,
+        0.0,
+        -0.3248
+      ],
+      "max": [
+        0.132,
+        1.1584,
+        0.06826
+      ],
+      "size": [
+        0.264,
+        1.1584,
+        0.3931
+      ]
+    },
+    "headBounds": {
+      "min": [
+        -0.132,
+        0.0,
+        -0.1115
+      ],
+      "max": [
+        0.132,
+        0.10928,
+        0.06826
+      ]
+    },
+    "foldAxisSign": 1,
+    "foldConvention": "FlexPivot.rotation.x = +fold folds the handheld forward (toward head front, +Z); MultiFLEX pivot is on the front face, latch at rear",
+    "pitchConvention": "runtime sets NeckPivot.rotation.x = -pitch (positive pitch leans wand back toward -Z); rest rotations are identity",
+    "nozzleDefinition": "intakeWidth = inner span between side caps; intakeZ = rear brushroll back edge .. front roller front edge; shell = FloorHead mesh bbox incl. wheels",
+    "generatedBy": "scripts/blender/build_powerdetect.py"
+  },
+  "ledger": [
+    {
+      "key": "scale_v2_m_per_px",
+      "value": 0.000263,
+      "source": "own V2 stack (PRODUCT_REFERENCE k2=0.2747 mm/px uses a different landmark set)",
+      "status": "derived"
+    },
+    {
+      "key": "scale_v7_m_per_px",
+      "value": 0.000634,
+      "source": "PRODUCT_REFERENCE.md v1.0 \u00a73: V7 alpha bbox 1826 px == 1.158 m",
+      "status": "derived"
+    },
+    {
+      "key": "overall.height",
+      "value": 1.158,
+      "source": "P1 assembled dims",
+      "status": "official"
+    },
+    {
+      "key": "overall.width",
+      "value": 0.263,
+      "source": "P1 assembled dims (== head width incl. side caps)",
+      "status": "official"
+    },
+    {
+      "key": "overall.depth",
+      "value": 0.393,
+      "source": "P1 assembled dims",
+      "status": "official"
+    },
+    {
+      "key": "head.half_width",
+      "value": 0.1315,
+      "source": "P1 width",
+      "status": "official"
+    },
+    {
+      "key": "head.side_cap_thickness",
+      "value": 0.0315,
+      "source": "V7: roller visible length 0.200 inside 0.263 -> ~0.031 per side",
+      "status": "measured"
+    },
+    {
+      "key": "head.front_fwd",
+      "value": 0.069,
+      "source": "wand axis->head front 0.150 (PRODUCT_REFERENCE) and P1 D 0.393",
+      "status": "derived"
+    },
+    {
+      "key": "head.body_depth",
+      "value": 0.132,
+      "source": "PRODUCT_REFERENCE V5 ratio 0.503 x 0.263",
+      "status": "measured"
+    },
+    {
+      "key": "head.cover_top_up",
+      "value": 0.076,
+      "source": "PRODUCT_REFERENCE V7 front face 130 px x 0.588 mm/px",
+      "status": "measured"
+    },
+    {
+      "key": "roller.front.radius",
+      "value": 0.0275,
+      "source": "PRODUCT_REFERENCE: dia ~0.055",
+      "status": "inferred"
+    },
+    {
+      "key": "roller.front.center_fwd",
+      "value": 0.035,
+      "source": "set so origin is midway between contact lines; front edge 6.5 mm behind bumper",
+      "status": "derived"
+    },
+    {
+      "key": "roller.front.length",
+      "value": 0.196,
+      "source": "V7 visible length 0.200 incl. end gaps",
+      "status": "measured"
+    },
+    {
+      "key": "roller.rear.radius",
+      "value": 0.02,
+      "source": "PRODUCT_REFERENCE: dia ~0.040 (no underside view)",
+      "status": "inferred"
+    },
+    {
+      "key": "roller.rear.core_radius",
+      "value": 0.0105,
+      "source": "inferred",
+      "status": "inferred"
+    },
+    {
+      "key": "roller.rear.center_fwd",
+      "value": -0.035,
+      "source": "must sit under the 0.132 body; mirrored about origin",
+      "status": "inferred"
+    },
+    {
+      "key": "roller.rear.length",
+      "value": 0.19,
+      "source": "inferred",
+      "status": "inferred"
+    },
+    {
+      "key": "wand.axis_fwd",
+      "value": -0.08099999999999999,
+      "source": "PRODUCT_REFERENCE: wand axis -> head front ~0.150",
+      "status": "inferred"
+    },
+    {
+      "key": "neck.pivot(x,up,fwd)",
+      "value": [
+        0.0,
+        0.1,
+        -0.08099999999999999
+      ],
+      "source": "PRODUCT_REFERENCE \u00a79: pitch axis ~0.095-0.10",
+      "status": "inferred"
+    },
+    {
+      "key": "neck.purple_disc_up",
+      "value": 0.112,
+      "source": "PRODUCT_REFERENCE chosen 0.112 (V7); V2 0.094 conflicting",
+      "status": "conflicting"
+    },
+    {
+      "key": "wheel.radius",
+      "value": 0.0235,
+      "source": "PRODUCT_REFERENCE: dia 0.047 (V2 172 px)",
+      "status": "measured"
+    },
+    {
+      "key": "wheel.center_fwd",
+      "value": -0.088,
+      "source": "V2/V5: directly behind body; footprint depth ~0.18",
+      "status": "measured"
+    },
+    {
+      "key": "wheel.x_inner",
+      "value": 0.051,
+      "source": "V5 top view: wheels at the rear corners of the neck plate (~\u00b10.061 centre)",
+      "status": "measured"
+    },
+    {
+      "key": "wheel.width",
+      "value": 0.019,
+      "source": "PRODUCT_REFERENCE ~0.020",
+      "status": "inferred"
+    },
+    {
+      "key": "neck.yoke_half_width",
+      "value": 0.024,
+      "source": "V7 75 px -> 0.048",
+      "status": "measured"
+    },
+    {
+      "key": "collar.up_range",
+      "value": [
+        0.124,
+        0.263
+      ],
+      "source": "neck connector 0.151 above disc",
+      "status": "measured"
+    },
+    {
+      "key": "collar.width(bottom,top)",
+      "value": [
+        0.046,
+        0.036
+      ],
+      "source": "V7 72 -> 57 px",
+      "status": "measured"
+    },
+    {
+      "key": "collar.depth",
+      "value": 0.05,
+      "source": "V2",
+      "status": "measured"
+    },
+    {
+      "key": "collar.button_up",
+      "value": 0.191,
+      "source": "V7 light-grey oval release button",
+      "status": "measured"
+    },
+    {
+      "key": "cuff.up_range",
+      "value": [
+        0.263,
+        0.283
+      ],
+      "source": "V7 grey bottom cuff of wand 0.020",
+      "status": "measured"
+    },
+    {
+      "key": "wand.up_range",
+      "value": [
+        0.283,
+        0.581
+      ],
+      "source": "V7/V2 purple length 0.298",
+      "status": "measured"
+    },
+    {
+      "key": "wand.section(w,d)",
+      "value": [
+        0.035,
+        0.046
+      ],
+      "source": "V7 55 px lateral; fore-aft conflicting 0.039-0.051",
+      "status": "conflicting"
+    },
+    {
+      "key": "fold.pivot(x,up,fwd)",
+      "value": [
+        0.0,
+        0.663,
+        -0.05599999999999999
+      ],
+      "source": "top of purple + 0.082; front face 0.025 ahead of axis",
+      "status": "measured"
+    },
+    {
+      "key": "fold.housing_width(w, with caps)",
+      "value": [
+        0.051,
+        0.063
+      ],
+      "source": "V7 81 / 99 px",
+      "status": "measured"
+    },
+    {
+      "key": "fold.pivot_cap_radius",
+      "value": 0.0115,
+      "source": "V2 85 px -> 0.023 dia",
+      "status": "measured"
+    },
+    {
+      "key": "upper.handheld_bottom_up",
+      "value": 0.812,
+      "source": "hinge + 0.149",
+      "status": "measured"
+    },
+    {
+      "key": "upper.width",
+      "value": 0.045,
+      "source": "V7 71 px",
+      "status": "measured"
+    },
+    {
+      "key": "upper.button_up",
+      "value": 0.78,
+      "source": "V7 dark oval release button",
+      "status": "measured"
+    },
+    {
+      "key": "body.axis_fwd",
+      "value": -0.11599999999999999,
+      "source": "PRODUCT_REFERENCE ~0.035 behind wand axis",
+      "status": "inferred"
+    },
+    {
+      "key": "body.radius",
+      "value": 0.045,
+      "source": "V7 body width 0.090",
+      "status": "measured"
+    },
+    {
+      "key": "bin.grey_base_up_range",
+      "value": [
+        0.812,
+        0.847
+      ],
+      "source": "V7 0.035",
+      "status": "measured"
+    },
+    {
+      "key": "bin.silver_shroud_up_range",
+      "value": [
+        0.847,
+        0.897
+      ],
+      "source": "V7 0.050",
+      "status": "measured"
+    },
+    {
+      "key": "bin.clear_up_range",
+      "value": [
+        0.847,
+        0.997
+      ],
+      "source": "clear shell spans shroud + window (0.150)",
+      "status": "measured"
+    },
+    {
+      "key": "bin.outer_radius",
+      "value": 0.044,
+      "source": "V7 0.090 width incl. frame",
+      "status": "measured"
+    },
+    {
+      "key": "bin.wall",
+      "value": 0.0022,
+      "source": "inferred molded PC wall",
+      "status": "inferred"
+    },
+    {
+      "key": "bin.purple_ring_up_range",
+      "value": [
+        0.997,
+        1.027
+      ],
+      "source": "V7 0.030",
+      "status": "measured"
+    },
+    {
+      "key": "body.silver_band_up_range",
+      "value": [
+        1.027,
+        1.049
+      ],
+      "source": "V7 'Shark' band (blank)",
+      "status": "measured"
+    },
+    {
+      "key": "motor.up_range",
+      "value": [
+        1.049,
+        1.104
+      ],
+      "source": "V7 motor+band 0.076",
+      "status": "measured"
+    },
+    {
+      "key": "motor.radius",
+      "value": 0.044,
+      "source": "V7",
+      "status": "measured"
+    },
+    {
+      "key": "filter_cap.up_range",
+      "value": [
+        1.104,
+        1.157
+      ],
+      "source": "V7/V2 0.053; cap top is the highest point (V7)",
+      "status": "measured"
+    },
+    {
+      "key": "filter_cap.radius",
+      "value": 0.045,
+      "source": "V7 0.090 dia",
+      "status": "measured"
+    },
+    {
+      "key": "filter_cap.rib_count",
+      "value": 22,
+      "source": "V2/V4/V7: ~11 flutes per visible half",
+      "status": "measured"
+    },
+    {
+      "key": "screen.radius",
+      "value": 0.029,
+      "source": "PRODUCT_REFERENCE ~0.060 dia control screen",
+      "status": "inferred"
+    },
+    {
+      "key": "frame.front_fwd",
+      "value": -0.056999999999999995,
+      "source": "body depth 0.104 = bin rear wall -> front frame",
+      "status": "measured"
+    },
+    {
+      "key": "frame.window(half_w, up0, up1)",
+      "value": [
+        0.031,
+        0.849,
+        1.025
+      ],
+      "source": "V7",
+      "status": "measured"
+    },
+    {
+      "key": "handle.rear_fwd",
+      "value": -0.32399999999999995,
+      "source": "V2 757 px behind motor axis",
+      "status": "measured"
+    },
+    {
+      "key": "grip.front(up,fwd)",
+      "value": [
+        1.112,
+        -0.146
+      ],
+      "source": "attach 0.035-0.050 below cap top",
+      "status": "measured"
+    },
+    {
+      "key": "grip.rear(up,fwd)",
+      "value": [
+        1.132,
+        -0.29999999999999993
+      ],
+      "source": "rises ~7 deg: V7 shows nothing above the cap, so the loop stays below 1.157",
+      "status": "conflicting"
+    },
+    {
+      "key": "grip.section(w,h)",
+      "value": [
+        0.031,
+        0.03
+      ],
+      "source": "ref thickness ~0.028",
+      "status": "measured"
+    },
+    {
+      "key": "battery.front(up,fwd)",
+      "value": [
+        1.028,
+        -0.144
+      ],
+      "source": "attach 0.107-0.148 below cap top",
+      "status": "measured"
+    },
+    {
+      "key": "battery.rear(up,fwd)",
+      "value": [
+        1.032,
+        -0.29999999999999993
+      ],
+      "source": "V2",
+      "status": "measured"
+    },
+    {
+      "key": "battery.section(w,h)",
+      "value": [
+        0.058,
+        0.04
+      ],
+      "source": "ref 0.152 x 0.040",
+      "status": "measured"
+    },
+    {
+      "key": "handle.rear_post(up0,up1,depth,width)",
+      "value": [
+        0.99,
+        1.148,
+        0.044,
+        0.058
+      ],
+      "source": "ref outer height 0.162 -> 0.158 (kept below cap top)",
+      "status": "measured"
+    },
+    {
+      "key": "roller.stripe_srgb",
+      "value": [
+        66,
+        150,
+        136
+      ],
+      "source": "ref #3A7F74 brightened toward V5 minty close-ups",
+      "status": "inferred"
+    }
+  ]
+}

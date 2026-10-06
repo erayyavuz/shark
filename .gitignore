@@ -1,0 +1,9 @@
+node_modules
+dist
+test-results
+playwright-report
+*.blend1
+.DS_Store
+assets/references/ia3246/video/
+assets/references/
+assets/reference-comparison/
