@@ -24,10 +24,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Build (served under /<repo>/)
+      - name: Build (served at the root of the custom domain shark-powerdetect.try2.app)
         run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /
       - name: Drop offline-only fallback models from the site
         run: rm -f dist/models/*.uncompressed.glb
       - uses: actions/upload-pages-artifact@v3

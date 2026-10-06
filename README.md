@@ -5,7 +5,7 @@ An independent, client-side product playground built around a reconstructed 3D m
 docked in a studio composition, presses **Start**, and the stick leaves the dock onto a playable floor where they make a mess
 and guide the vacuum over it.
 
-**Live:** https://erayyavuz.github.io/shark-powerdetect/
+**Live:** https://shark-powerdetect.try2.app/
 
 > **Unofficial fan concept.** Not affiliated with, sponsored or endorsed by SharkNinja. "Shark", "PowerDetect", "DuoClean" and the
 > product markings shown on the 3D model are trademarks of SharkNinja Operating LLC and are used here only to depict the product.
