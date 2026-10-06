@@ -24,7 +24,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Build (served at the root of the custom domain shark-powerdetect.try2.app)
+      - name: Build (served at the root of the user site erayyavuz.github.io)
         run: npm run build
         env:
           BASE_PATH: /
